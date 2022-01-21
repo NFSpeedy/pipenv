@@ -94,6 +94,9 @@ def handle_parsed_args(parsed):
     os.environ["PIPENV_VERBOSITY"] = str(parsed.verbose)
     if "PIPENV_PACKAGES" in os.environ:
         parsed.packages += os.environ.get("PIPENV_PACKAGES", "").strip().split("\n")
+    # if "PIPENV_NUMBER_OF_PACKAGES" in os.environ and "PIPENV_PACKAGES_0" in os.environ:
+    #     for index in range(0, int(os.environ["PIPENV_NUMBER_OF_PACKAGES"])):
+    #         parsed.packages.append(os.environ.get("PIPENV_PACKAGES_{}".format(index), "").strip())
     return parsed
 
 

@@ -1316,6 +1316,9 @@ def venv_resolve_deps(
             )
             constraints = set(deps)
             os.environ["PIPENV_PACKAGES"] = str("\n".join(constraints))
+            # os.environ['PIPENV_NUMBER_OF_PACKAGES'] = str(len(constraints))
+            # for index, constraint in enumerate(constraints):
+            #     os.environ["PIPENV_PACKAGES_{}".format(index)] = str(constraint)
             sp.write(decode_for_output("Resolving dependencies..."))
             c = resolve(cmd, sp, project=project)
             results = c.stdout.strip()
